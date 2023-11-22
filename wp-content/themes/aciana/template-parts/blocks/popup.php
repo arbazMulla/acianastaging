@@ -46,22 +46,25 @@ $phone_number = get_field('phone_number');
                     </svg>
                 </button>
                 <div class="modal-content d-flex">
-                    <div class="col-6 p-4">
-                        <h2 class=""><?php echo $main_primary_title; ?> <span class="text-secondary fw-bold"><?php echo $main_secondary_title; ?> </span></h2>
-                        <div class="mb-3">
+                    <div class="col-6 ps-5 py-4">
+                        <h2 class="p-0 mb-3"><?php echo $main_primary_title; ?> <span class="text-secondary fw-bold"><?php echo $main_secondary_title; ?> </span></h2>
+                        <div class="mb-3 ">
                             <p class="mb-2 text-500 fw-medium"><?php echo $text ?></p>
-                            <input type="text" class="bg-300 py-3 border-0 px-2 rounded" placeholder="Enter your phone number">
-                            <!-- Enter phone number & we'll send you a number link -->
+
+                            <form method="post" action="">
+                                <input type="tel" id="phone_number" name="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required class="bg-100 py-3 border border-secondary px-3 rounded w-100" placeholder="Enter Phone Number">
+
+                            </form>
                         </div>
                         <div class="mb-3">
                             <p class="mb-2 text-500 fw-medium"><?php echo $feature_title; ?></p>
                         </div>
-                        <!-- Download the Docisn app to get amazing features: -->
+
                         <InnerBlocks allowedBlocks="<?php echo esc_attr(wp_json_encode(array('aciana-acf-featured-list'))); ?>" template="<?php echo esc_attr(wp_json_encode(array(array('acf/aciana-acf-featured-list')))); ?>" />
 
                     </div>
-                    <div class="col-6 pt-4 ps-4 pe-1 d-flex align-items-end">
-                        <img class="img-fluid img-responsive" src="<?php echo $image ?>" alt="">
+                    <div class="col-6 pt-5 ps-5 pe-1 d-flex ">
+                        <img class=" img-responsive" src="<?php echo $image ?>" alt="">
                     </div>
                 </div>
             </div>

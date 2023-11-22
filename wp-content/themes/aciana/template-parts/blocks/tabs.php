@@ -18,6 +18,7 @@ if (!empty($block['className'])) {
 
 ?>
 <div class="<?= $uid; ?> <?= esc_attr($className); ?>">
+
     <div class="d-flex align-items-start">
         <?php
         if (have_rows('tabs')) : ?>
@@ -27,8 +28,9 @@ if (!empty($block['className'])) {
                 while (have_rows('tabs')) :
                     the_row();
                     $title = get_sub_field('title');
+                    $slugtitle = sanitize_title($title);
                 ?>
-                    <a href="#v-pills-<?= $counter ?>-tab" class="nav-link tabs pe-0 text-start mb-2 <?= $counter === 1 ? 'active' : '' ?>" data-bs-toggle="pill" data-bs-target="#v-pills-<?= $counter ?>" type="button" role="tab" aria-controls="v-pills-<?= $counter ?>" aria-selected="true">
+                    <a class="nav-link tabs pe-0 text-start mb-2 <?= $counter === 1 ? 'active' : '' ?>" href="#<?= $slugtitle ?>" id="v-pills-<?= $counter ?>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<?= $slugtitle ?>" type="button" role="tab" aria-controls="v-pills-<?= $slugtitle ?>" aria-selected="true">
                         <?= $title ?>
                     </a>
                 <?php $counter++;
@@ -40,8 +42,9 @@ if (!empty($block['className'])) {
                 while (have_rows('tabs')) :
                     the_row();
                     $content = get_sub_field('content');
+                    $slugtitle1 = sanitize_title(get_sub_field('title'));
                 ?>
-                    <div class="tab-pane ps-md-3 fade <?= $counter === 1 ? 'show active' : '' ?>" id="v-pills-<?= $counter ?>" role="tabpanel" aria-labelledby="v-pills-<?= $counter ?>-tab" tabindex="0">
+                    <div class="tab-pane ps-md-3 fade <?= $counter === 1 ? 'show active' : '' ?>" id="v-pills-<?= $slugtitle1 ?>" role="tabpanel" aria-labelledby="v-pills-<?= $slugtitle1 ?>-tab" tabindex="0">
                         <?= $content ?>
                     </div>
                 <?php $counter++;
@@ -64,10 +67,19 @@ if (!empty($block['className'])) {
 
             // Activate the specified tab
             if (activeTabHash) {
-                // Update the active tab link and content
+                // Remove 'active' class from all tabs and tab content
+
                 jQuery('.tabs').removeClass('active');
+                jQuery('.tab-pane').removeClass('show active');
+
+                // Activate the specified tab link
                 jQuery('[href="' + activeTabHash + '"]').addClass('active');
-                jQuery(activeTabHash + '-tab').addClass('show active');
+
+                // Extract the tab ID from the hash and activate the corresponding content
+                // var tabId = activeTabHash.replace('#v-pills-', '').replace('-tab', '');
+                var tabId = activeTabHash.replace('#', '');
+                // console.log(tabId);
+                jQuery('#v-pills-' + tabId).addClass('show active');
             }
         }
 

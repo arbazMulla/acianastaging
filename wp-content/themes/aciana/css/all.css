@@ -14963,35 +14963,42 @@ footer #menu-footer-social li .nav-link::after {
   --ahs-icon-color: var(--ahs-secondary);
   --icon-uri: var(--icon-uri-collapse);
 }
-.aciana-block .icon {
+
+.icon {
   display: inline-block;
   width: 16px;
   height: 16px;
   vertical-align: middle;
-  fill: currentcolor;
+  fill: var(--ahs-secondary);
 }
-.aciana-block-modalQR .modal {
+
+.wrapper:hover {
+  cursor: pointer;
+}
+
+.modal {
   position: absolute;
-  z-index: 10000; /* 1 */
+  z-index: 10000;
+  /* 1 */
   top: 0;
   left: 0;
   visibility: hidden;
   width: 100%;
   height: 100%;
 }
-.aciana-block-modalQR .modal.is-visible {
+.modal.is-visible {
   visibility: visible;
 }
-.aciana-block-modalQR .modal.is-visible .modal-overlay {
+.modal.is-visible .modal-overlay {
   opacity: 1;
   visibility: visible;
   transition-delay: 0s;
 }
-.aciana-block-modalQR .modal.is-visible .modal-transition {
+.modal.is-visible .modal-transition {
   transform: translateY(0);
   opacity: 1;
 }
-.aciana-block-modalQR .modal .modal-overlay {
+.modal .modal-overlay {
   position: fixed;
   z-index: 10;
   top: 0;
@@ -15003,7 +15010,7 @@ footer #menu-footer-social li .nav-link::after {
   opacity: 0;
   transition: visibility 0s linear 0.3s, opacity 0.3s;
 }
-.aciana-block-modalQR .modal .modal-wrapper {
+.modal .modal-wrapper {
   position: absolute;
   z-index: 9999;
   top: 10%;
@@ -15014,12 +15021,12 @@ footer #menu-footer-social li .nav-link::after {
   box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
   border-radius: 10px;
 }
-.aciana-block-modalQR .modal .modal-transition {
+.modal .modal-transition {
   transition: all 0.3s 0.12s;
   transform: translateY(-10%);
   opacity: 0;
 }
-.aciana-block-modalQR .modal .modal-body .modal-close {
+.modal .modal-body .modal-close {
   position: absolute;
   top: 0;
   right: 0;
@@ -15028,7 +15035,7 @@ footer #menu-footer-social li .nav-link::after {
   background: none;
   border: 0;
 }
-.aciana-block-modalQR .modal .modal-body .modal-close:hover {
+.modal .modal-body .modal-close:hover {
   color: #777;
 }
 
