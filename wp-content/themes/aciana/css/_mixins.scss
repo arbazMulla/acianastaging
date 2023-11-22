@@ -1,0 +1,90 @@
+@mixin font-demi() {
+    font-family: var(--#{$prefix}font-demi) !important;
+    font-weight: 400 !important;
+}
+
+@mixin color($color) {
+    color: $color;
+    fill: $color;
+    stroke: $color;
+}
+
+@mixin transition($set) {
+    -webkit-transition: $set;
+    -moz-transition: $set;
+    transition: $set;
+}
+
+@mixin transform($set) {
+    -webkit-transform: $set;
+    -moz-transform: $set;
+    transform: $set;
+}
+
+@mixin animation($set) {
+    -webkit-animation: $set;
+    -moz-animation: $set;
+    animation: $set;
+}
+
+@mixin property($args...) {
+    @debug keywords($args);
+
+    @each $name, $value in keywords($args) {
+        -webkit-#{$name}: $value;
+        -moz-#{$name}: $value;
+        #{$name}: $value;
+    }
+}
+
+@mixin anim($args...) {
+    @debug keywords($args);
+    @each $name, $value in keywords($args) {
+        -webkit-animation-#{$name}: $value;
+        -moz-animation-#{$name}: $value;
+        animation-#{$name}: $value;
+    }
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin theme-scrollbar($thumb-color: var(--#{$prefix}gray-100), $track-color: var(--#{$prefix}gray-500)) {
+    &::-webkit-scrollbar {
+        width: 0.625rem;
+        background-color: $thumb-color;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $thumb-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $track-color;
+        border: 1px solid $thumb-color;
+        border-radius: 0.325rem;
+    }
+}
+
+/******** Chrome autofill css **********/
+@mixin input-autofill($text-color: var(--#{$prefix}dark), $bg-color: var(--#{$prefix}white)) {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-text-fill-color: $text-color !important;
+        box-shadow: 0 0 0 1.75rem $bg-color inset !important;
+        -webkit-box-shadow: 0 0 0 1.75rem $bg-color inset !important;
+    }
+}

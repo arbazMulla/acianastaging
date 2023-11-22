@@ -1,0 +1,26 @@
+.gallery-width,
+.article-width {
+	width: 100%;
+	padding-right: var(--#{$prefix}gutter-x, 0.75rem);
+	padding-left: var(--#{$prefix}gutter-x, 0.75rem);
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media (min-width: 768px) {
+	.article-width {
+		max-width: 584px;
+	}
+}
+
+@media (min-width: 992px) {
+	.article-width {
+		max-width: 608px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.article-width {
+		max-width: 800px;
+	}
+}

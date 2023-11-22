@@ -1,0 +1,166 @@
+.aciana-block {
+
+	/******** Block Name: container **********/
+	&-container {
+		.ribbon_bg {
+			right: -50vw;
+			border-radius: 3rem 0 0 0.125rem;
+		}
+	}
+
+	/******** Block Name: Accordion **********/
+	&-accordion {
+		.accordion-title {
+			border-bottom: 1px solid var(--#{$prefix}gray);
+			padding: 1.75rem 0rem;
+		}
+
+		.accordion-body {
+			padding: 1rem 0;
+			font-weight: normal;
+		}
+
+		.accordion-header {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		.accordion-item {
+			border-bottom: 1px solid var(--#{$prefix}gray);
+			color: inherit;
+			background-color: inherit;
+			padding-left: 2rem;
+
+			.accordion-button {
+				background-color: inherit;
+				color: inherit;
+				border: 0;
+				padding: 1rem 0;
+				position: relative;
+				--#{$prefix}icon-color: var(--#{$prefix}primary);
+				--icon-uri: var(--icon-uri-expand);
+
+				&::before {
+					content: "";
+					content: "";
+					width: 1rem;
+					height: 1rem;
+					background: var(--#{$prefix}icon-color);
+					mask-image: var(--icon-uri);
+					-webkit-mask-image: var(--icon-uri);
+					position: absolute;
+					left: -2rem;
+					top: 0;
+					bottom: 0;
+					margin: auto;
+				}
+
+				&:focus {
+					outline: none;
+					box-shadow: none;
+				}
+
+				&:hover {
+					color: var(--#{$prefix}primary-hover) !important;
+				}
+
+				&:not(.collapsed) {
+					color: var(--#{$prefix}primary) !important;
+					--#{$prefix}icon-color: var(--#{$prefix}secondary);
+					--icon-uri: var(--icon-uri-collapse);
+				}
+			}
+		}
+	}
+}
+
+
+// Block: Button Popup
+.icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	fill: var(--#{$prefix}secondary);
+}
+
+.wrapper {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.modal {
+	position: absolute;
+	z-index: 10000;
+	/* 1 */
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	width: 100%;
+	height: 100%;
+
+	&.is-visible {
+		visibility: visible;
+
+		.modal-overlay {
+			opacity: 1;
+			visibility: visible;
+			transition-delay: 0s;
+		}
+
+		.modal-transition {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	.modal-overlay {
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: hsla(0, 0%, 0%, 0.5);
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 0.3s, opacity 0.3s;
+	}
+
+	.modal-wrapper {
+		position: absolute;
+		z-index: 9999;
+		top: 10%;
+		left: 35%;
+		width: 70%;
+		margin-left: -16em;
+		background-color: #fff;
+		box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
+		border-radius: 10px;
+	}
+
+	.modal-transition {
+		transition: all 0.3s 0.12s;
+		transform: translateY(-10%);
+		opacity: 0;
+	}
+
+	.modal-body {
+		.modal-close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 1em;
+			color: #aaa;
+			background: none;
+			border: 0;
+
+			&:hover {
+				color: #777;
+			}
+		}
+
+	}
+
+}

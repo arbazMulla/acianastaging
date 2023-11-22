@@ -1,0 +1,20 @@
+/******** Custom theme variables **********/
+body {
+	--#{$prefix}font-demi: #{inspect($font-demi)};
+	--#{$prefix}header-height: 5.25rem;
+	--#{$prefix}logo-height: 2rem;
+	--#{$prefix}screen-height: calc(100vh - var(--#{$prefix}header-height));
+	--#{$prefix}primary-hover: var(--#{$prefix}primary);
+	--#{$prefix}list-padding-start: 4rem;
+
+	@media only screen and (orientation: portrait) {
+		& {
+			--#{$prefix}screen-height: 50vh;
+		}
+	}
+
+	@include media-breakpoint-down(xl) {
+		--#{$prefix}header-height: 4.25rem;
+		--#{$prefix}logo-height: 2.25rem;
+	}
+}

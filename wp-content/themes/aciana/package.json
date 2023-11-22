@@ -1,0 +1,23 @@
+{
+  "name": "awsm_live_site",
+  "version": "1.0.0",
+  "description": "AWSM Innovations live site",
+  "repository": {
+    "type": "git",
+    "url": "git+https://awsmadhun@bitbucket.org/awsmin/awsm-live-site.git"
+  },
+  "author": "AWSM Innovations",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/awsmin/awsm-live-site#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-rename": "^1.2.3",
+    "gulp-uglify": "^2.1.2"
+  }
+}

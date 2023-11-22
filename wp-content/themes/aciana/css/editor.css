@@ -1,0 +1,27 @@
+/* body selector will be parsed as .editor-styles-wrapper */
+
+body {
+	padding-top: 0;
+}
+
+.wp-block {
+	max-width: none;
+}
+
+.acf-field.acf-field-true-false {
+	display: inline-block;
+}
+
+body .aciana-block.button {
+	border: none;
+	background: transparent;
+}
+
+body .d-none {
+	display: block !important;
+	opacity: 0.2;
+}
+
+body img.wpforms-pix-trigger {
+	width: auto !important;
+}

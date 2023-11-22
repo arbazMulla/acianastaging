@@ -1,0 +1,49 @@
+/****************** Project Sizes(WxH)(px) ******************/
+/* Standard Screen sizes
+1920 x 1080 (16:9)
+1600 x 900 (16:9)
+1536 x 864 (16:9)
+1366 x 768 (16:9)
+1440 x 900 (8:5)
+1280 x 800 (8:5)
+1024 x 768 (4:3)
+768 x 1024 (3:4)
+*/
+
+/*  Banner Image sizes
+1920 x 1080 – (16:9) - Full width banner
+*/
+/****************** Project Sizes ******************/
+
+/****************** Bootstrap Variables ******************/
+$theme-primary: #ff817f;
+$theme-secondary: #78aac3;
+$theme-secondary-dark: #3c678c;
+$theme-green: #198754;
+$theme-yellow: #ffc107;
+$theme-red: #dc3545;
+$theme-danger: #dc3545;
+$theme-black: #092124;
+$theme-white: #ffffff;
+$theme-light: #e7ecf2;
+$theme-dark: #1c1c1c;
+$theme-gray-100: #f0f0f0;
+$theme-gray-200: #bfbfbf;
+$theme-gray-300: #dee2e6;
+$theme-gray-400: #ced4da;
+$theme-gray-500: #5f6f71;
+$theme-gray-600: #6c757d;
+$theme-gray-700: #404040;
+$theme-gray-800: #343a40;
+$theme-gray-900: #212529;
+
+$font-family: "Raleway", sans-serif;
+$font-demi: "Exo", sans-serif;
+$layout-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px,
+);
