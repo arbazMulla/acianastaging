@@ -204,6 +204,32 @@ function aciana_acf_init()
                 },
             )
         );
+
+        // Image Content Box
+        acf_register_block(
+            array(
+                'name' => 'aciana-acf-image-content-box',
+                'category' => 'aciana-acf-blocks',
+                'title' => 'Image Content Box',
+                'description' => 'Create a dynamic content box',
+                'render_callback' => 'aciana_acf_block_template',
+                'icon' => 'layout',
+                'mode' => 'preview',
+                'allowed_blocks' => array('button'),
+                'multiple_blocks' => true,
+                'multiple' => true,
+                'deep' => 2,
+                'supports' => array(
+                    'jsx' => true,
+                    'multiple' => true,
+                ),
+                'enqueue_assets' => function () {
+                    wp_enqueue_style('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', array(), '1.8.1');
+                    wp_enqueue_style('slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css', array(), '1.8.1');
+                    wp_enqueue_script('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js', array('jquery'), '1.8.1', true);
+                }
+            )
+        );
     }
 }
 
