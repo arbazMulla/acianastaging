@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .slider-container {
+            display: flex;
+        }
+
+        .slider {
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            margin-right: 20px;
+        }
+
+        .content div {
+            display: none;
+        }
+
+        .slide {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .active {
+            background-color: #3498db;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active" onclick="showSlide(0)">Slide 1</div>
+            <div class="slide" onclick="showSlide(1)">Slide 2</div>
+            <div class="slide" onclick="showSlide(2)">Slide 3</div>
+        </div>
+
+        <div class="content">
+            <div class="content1">
+                <p id="content1">Content for Slide 1 goes here.</p>
+            </div>
+            <div class="content2">
+                <p>Content for Slide 2 goes here.</p>
+            </div>
+            <div class="content3">
+                <p id="content3">Content for Slide 3 goes here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        // Set the initial active state
+        updateUI();
+
+        function showSlide(index) {
+            currentIndex = index;
+            updateUI();
+        }
+
+        function updateUI() {
+            const slides = document.querySelectorAll('.slide');
+
+            slides.forEach((slide, i) => {
+                if (i === currentIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            const contents = document.querySelectorAll('.content > div');
+
+            contents.forEach((content, i) => {
+                if (i === currentIndex) {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        }
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % 3; // Assuming 3 slides
+            updateUI();
+        }, 2000); // Switch every 2000 milliseconds (2 seconds)
+    </script>
+
+</body>
+
+</html>

@@ -72,6 +72,98 @@
 			}
 		}
 	}
+
+	/******** Block Name: Tabs Carousal **********/
+	&-tabs-carousal {
+		.slidercontainer {
+			position: relative;
+
+			.slide {
+
+				&.active {
+					animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+					height: auto;
+				}
+
+				.contentBar {
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 5px;
+						left: -2rem;
+						height: 100%;
+						width: 3px;
+						background-color: var(--#{$prefix}gray-400);
+						border-radius: 10px;
+					}
+
+					&.active::before {
+						animation: 5s 1 linear barSlide;
+						background-color: #3c668b;
+					}
+
+					@keyframes barSlide {
+						0% {
+							height: 0;
+						}
+
+						100% {
+							height: 96%;
+						}
+					}
+
+					img {
+						width: 80px !important;
+					}
+
+					div {
+						h3 {
+							&:hover {
+								cursor: pointer;
+							}
+
+							&.active {
+								color: #3C678C !important;
+							}
+						}
+					}
+
+					.contentBox {
+						p {
+							font-size: 1.3rem !important;
+							font-weight: 500 !important;
+							margin-bottom: 1.8rem;
+						}
+					}
+				}
+
+				.content {
+					position: absolute;
+					left: 50%;
+					top: 0;
+
+					div {
+						display: none;
+					}
+				}
+
+				@keyframes fade-in {
+					0% {
+						opacity: 0;
+					}
+
+					100% {
+						opacity: 1;
+					}
+				}
+			}
+
+
+		}
+
+	}
 }
 
 

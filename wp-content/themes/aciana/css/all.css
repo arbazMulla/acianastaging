@@ -14905,6 +14905,7 @@ footer #menu-footer-social li .nav-link::after {
 .aciana-block {
   /******** Block Name: container **********/
   /******** Block Name: Accordion **********/
+  /******** Block Name: Tabs Carousal **********/
 }
 .aciana-block-container .ribbon_bg {
   right: -50vw;
@@ -14962,6 +14963,68 @@ footer #menu-footer-social li .nav-link::after {
   color: var(--ahs-primary) !important;
   --ahs-icon-color: var(--ahs-secondary);
   --icon-uri: var(--icon-uri-collapse);
+}
+.aciana-block-tabs-carousal .slidercontainer {
+  position: relative;
+}
+.aciana-block-tabs-carousal .slidercontainer .slide.active {
+  animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  height: auto;
+}
+.aciana-block-tabs-carousal .slidercontainer .slide .contentBar {
+  position: relative;
+}
+.aciana-block-tabs-carousal .slidercontainer .slide .contentBar::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -2rem;
+  height: 100%;
+  width: 3px;
+  background-color: var(--ahs-gray-400);
+  border-radius: 10px;
+}
+.aciana-block-tabs-carousal .slidercontainer .slide .contentBar.active::before {
+  animation: 5s 1 linear barSlide;
+  background-color: #3c668b;
+}
+@keyframes barSlide {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 96%;
+  }
+}
+.aciana-block-tabs-carousal .slidercontainer .slide .contentBar img {
+  width: 80px !important;
+}
+.aciana-block-tabs-carousal .slidercontainer .slide .contentBar div h3:hover, .aciana-block-tabs-carousal .slidercontainer .slide .contentBar div .h3:hover {
+  cursor: pointer;
+}
+.aciana-block-tabs-carousal .slidercontainer .slide .contentBar div h3.active, .aciana-block-tabs-carousal .slidercontainer .slide .contentBar div .active.h3 {
+  color: #3C678C !important;
+}
+.aciana-block-tabs-carousal .slidercontainer .slide .contentBar .contentBox p {
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 1.8rem;
+}
+.aciana-block-tabs-carousal .slidercontainer .slide .content {
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+.aciana-block-tabs-carousal .slidercontainer .slide .content div {
+  display: none;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .icon {
